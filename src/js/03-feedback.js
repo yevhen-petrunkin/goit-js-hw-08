@@ -35,6 +35,13 @@ formRefs.addEventListener('submit', evt => {
 
 function populateInputs() {
   formData = JSON.parse(localStorage.getItem(FORM_STORAGE_KEY));
-  email.value = formData.email;
-  message.value = formData.message;
+  if (formData) {
+    email.value = formData.email;
+    message.value = formData.message;
+  } else {
+    formData = {
+      email: '',
+      message: '',
+    };
+  }
 }
